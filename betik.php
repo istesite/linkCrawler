@@ -3,7 +3,13 @@ error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING ^ E_DEPRECATED);
 include_once "crawler.class.php";
 include_once "mysql.class.php";
 
-$url = '#';
+
+if(isset($argv[1]) and trim($argv[1]) != ''){
+	$url = $argv[1];
+}
+else{
+	$url = '#';
+}
 
 $db = new DatabaseClass('localhost', 'root', '', 'crawler');
 $crawler = new Crawler();

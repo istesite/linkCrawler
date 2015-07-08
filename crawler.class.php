@@ -135,6 +135,14 @@ class Crawler{
 			$url = '';
 		}
 
+		if(strstr($url, '#fragment-')){
+			$url = str_replace(array('#fragment-1','#fragment-2','#fragment-3','#fragment-4','#fragment-5','#fragment-6','#fragment-7','#fragment-8','#fragment-9'), '', $url);
+		}
+
+		if(substr($url, -1, 1) == '#'){
+			$url = substr($url, 0, -1);
+		}
+
 		$exp = parse_url($url);
 		if(!self::isLocalUrl($url) or (isset($exp['host']) and trim($exp['host']) != self::getHostName())){
 			return array('type'=>'remote', 'url'=>$url);
