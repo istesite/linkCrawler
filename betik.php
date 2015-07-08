@@ -3,7 +3,7 @@ error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING ^ E_DEPRECATED);
 include_once "crawler.class.php";
 include_once "mysql.class.php";
 
-$url = 'http://www.turkticaret.net/';
+$url = '#';
 
 $db = new DatabaseClass('localhost', 'root', '', 'crawler');
 $crawler = new Crawler();
